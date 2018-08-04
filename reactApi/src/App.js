@@ -1,20 +1,30 @@
 import React, { Component } from "react";
-
+import "./App.css";
 import axios from "axios";
 
-import "./App.css";
-
 class App extends Component {
-  getallTheTask() {}
+  constructor() {
+    super();
+
+    this.state = {
+      usename: ""
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    axios
+      .get("https://api.github.com/users/ManuelCabrera01")
+      .then(response => console.log(response));
+  }
+
   render() {
-    return <h1>hellooooooo</h1>;
-    <button
-      onClick={() => {
-        this.getallTheTask();
-      }}
-    >
-      gey the tasl
-    </button>;
+    return (
+      <div className="button__container">
+        <button className="button" onClick={this.handleClick}>
+          CLICK ME MAH DUDE
+        </button>
+      </div>
+    );
   }
 }
 
