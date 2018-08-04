@@ -14,7 +14,7 @@ class App extends Component {
   handleClick() {
     axios
       .get("https://api.github.com/users/ManuelCabrera01")
-      .then(response => console.log(response));
+      .then(response => this.setState({ username: response.data.name }));
   }
 
   render() {
@@ -23,6 +23,7 @@ class App extends Component {
         <button className="button" onClick={this.handleClick}>
           CLICK ME MAH DUDE
         </button>
+        <h1>{this.state.username}</h1>
       </div>
     );
   }
